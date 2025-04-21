@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Carga ultrarrápida",
+    "description": "Sitios web ligeros que cargan en milisegundos.",
+    "icon": "⚡"
+  },
+  {
+    "title": "Diseño responsive",
+    "description": "Se adapta perfectamente a celulares, tablets y cualquier dispositivo.",
+    "icon": "📱"
+  },
+  {
+    "title": "Conversión optimizada",
+    "description": "Estructura estratégica para captar leads o ventas.",
+    "icon": "🧠"
+  },
+  {
+    "title": "Listo para SEO y campañas",
+    "description": "Compatible con Google Ads, redes sociales, y posicionamiento orgánico.",
+    "icon": "🔍"
+  }
+]
