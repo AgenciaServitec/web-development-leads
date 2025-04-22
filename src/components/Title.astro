@@ -1,0 +1,12 @@
+---
+interface Props{
+    text: string,
+}
+const {text} = Astro.props;
+---
+<div class="text-center flex flex-col items-center mb-16">
+    <h2 class="text-3xl font-poppins font-bold leading-tight tracking-tight text-black-900 sm:text-5xl">
+        <span class="bg-gradient-to-r from-yellow-500 to-yellow-700 bg-clip-text text-transparent">{text}</span>
+    </h2>
+    <div class="w-48 mt-4 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent rounded-full" />
+</div>
