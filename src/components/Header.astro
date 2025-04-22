@@ -1,13 +1,36 @@
+---
+import {Image} from "astro:assets"
+
+import ContentWidth from "./ContentWidth.astro";
+---
 <header
-  class="w-full sticky top-0 left-0 p-4 bg-red-200 flex justify-between items-center"
+    id="header"
+  class="w-full fixed top-0 left-0 z-50 py-4"
 >
-  <h1 class="text-2xl font-bold">Logo</h1>
-  <nav class="py-2 px-6 border rounded-4xl">
-    <ul class="flex justify-center gap-4">
-      <li><a href="/">Inicio</a></li>
-      <li><a href="/#benefits">Beneficios</a></li>
-      <li><a href="/#jobs">Trabajos</a></li>
-    </ul>
-  </nav>
-  <a href="/#contact" class="py-2 px-4 border rounded-4xl">Contacto</a>
+  <ContentWidth>
+    <div class="flex flex-col md:flex-row md:justify-between items-center gap-4">
+      <!--<Image src="https://servitecperu.com/logotipo-soft.png" alt="Logo de Servitec Software." width="200" height="150" />-->
+      <h1>Logo</h1>
+      <nav class="rounded-full">
+        <ul class="flex justify-center gap-6 px-6 py-2 lg:px-10 lg:py-4">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/#benefits">Beneficios</a></li>
+          <li><a href="/#jobs">Trabajos</a></li>
+        </ul>
+      </nav>
+      <a href="/#contact" class="hidden md:flex px-4 py-2 lg:px-8 lg:py-4 rounded-full bg-black backdrop-blur-md shadow text-white">Contacto</a>
+    </div>
+  </ContentWidth>
 </header>
+
+<script>
+  const header = document.querySelector('#header') as HTMLElement;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 110) {
+      header.classList.add('shadow', "backdrop-blur-sm");
+    } else {
+      header.classList.remove('shadow');
+    }
+  });
+</script>

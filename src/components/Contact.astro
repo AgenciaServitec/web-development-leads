@@ -1,3 +1,16 @@
-<section>
-    Contacto
+---
+import Title from "./Title.astro";
+import ContentWidth from "./ContentWidth.astro";
+---
+
+<section id="contact" class="py-20">
+    <ContentWidth>
+        <Title text="Contacto" />
+        <form>
+            <input type="text" name="" placeholder="Nombre" />
+            <input type="email" name="" placeholder="Correo" />
+            <input type="number" name="" placeholder="Telefono" />
+            <button>Enviar</button>
+        </form>
+    </ContentWidth>
 </section>

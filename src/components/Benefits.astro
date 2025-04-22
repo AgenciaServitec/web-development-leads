@@ -1,35 +1,29 @@
 ---
 import benefits from "../data-list/benefits.json";
+import ContentWidth from "./ContentWidth.astro";
+import Title from "./Title.astro";
 ---
 
-<section id="benefits" class="py-20 bg-gray-100">
-  <div class="text-center justify-items-center mb-16 px-4">
-      <h2 class="text-3xl font-extrabold leading-tight tracking-tight text-black-900 sm:text-5xl">
-      <span class="bg-gradient-to-r from-red-600 to-red-900 bg-clip-text text-transparent">
-      Beneficios clave
-      </span>
-      </h2>
-    <div class="w-48 mt-4 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent rounded-full" />
-  </div>
-  <div class="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-6 sm:px-12 lg:px-24 ">
-    {
-      benefits.map((benefit) => (
-          <article class="relative rounded-2xl bg-white shadow-md border border-gray-100 p-8 hover:shadow-xl transition-all duration-300 group overflow-hidden">
-            <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#f5f5f5_1px,transparent_1px),linear-gradient(to_bottom,#f5f5f5_1px,transparent_1px)] bg-[size:16px_24px]" />
-            <div class="flex justify-center mb-6">
-              <div class="bg-red-100 text-red-600 w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-inner transition-transform group-hover:scale-105">
-                {benefit.icon}
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-center text-red-900 mb-2">
-              {benefit.title}
-            </h3>
-            <p class="text-center text-black-600 text-sm leading-relaxed">
-              {benefit.description}
-            </p>
-          </article>
-      ))
-    }
-  </div>
-
+<section id="benefits" class="py-20">
+  <ContentWidth>
+      <Title text="Beneficios clave"/>
+      <div class="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {
+              benefits.map((benefit) => (<article class="h-67 relative rounded-2xl bg-white shadow-md border border-gray-100 p-8 hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                  <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#f5f5f5_1px,transparent_1px),linear-gradient(to_bottom,#f5f5f5_1px,transparent_1px)] bg-[size:16px_24px]" />
+                  <div class="flex justify-center mb-6">
+                      <div class="bg-red-100 text-red-600 w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-inner transition-transform group-hover:scale-105">
+                          {benefit.icon}
+                      </div>
+                  </div>
+                  <h3 class="text-xl font-bold text-center text-red-900 mb-2">
+                      {benefit.title}
+                  </h3>
+                  <p class="text-center text-black-600 text-sm leading-relaxed">
+                      {benefit.description}
+                  </p>
+              </article>))
+          }
+      </div>
+  </ContentWidth>
 </section>

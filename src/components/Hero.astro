@@ -1,17 +1,29 @@
-<section
-  class="w-full flex flex-col gap-4 justify-center items-center h-[80vh]"
->
-  <h2
-    class="max-w-[70rem] text-6xl text-center font-poppins font-bold leading-20"
-  >
-    Creamos páginas web profesionales que impulsan tu negocio
-  </h2>
-  <p class="max-w-[40rem] text-md text-center">
-    Desarrollo web moderno, rápido y optimizado para atraer clientes desde el
-    primer clic. Ideal para campañas con Google Ads, redes sociales o
-    posicionamiento SEO.
-  </p>
-  <a href="/#contact" class="bg-black text-white py-2 px-4 border rounded-4xl"
-    >Solicita tu cotización gratuita</a
-  >
+---
+import ContentWidth from "./ContentWidth.astro";
+---
+<!--bg-gradient-to-b from-yellow-200 via-yellow-100 to-white-->
+<section class="w-full relative">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-yellow-200 via-yellow-100 to-white">
+    <div class="relative h-full w-full bg-red [&>div]:absolute [&>div]:h-full [&>div]:w-full [&>div]:bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [&>div]:[background-size:16px_16px] [&>div]:[mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
+      <div></div>
+    </div>
+  </div>
+
+  <ContentWidth>
+    <div class="relative w-full h-svh flex flex-col gap-8 xl:gap-10 justify-center items-center xl:pt-32">
+      <div class="flex xl:hidden gap-4">
+        <p class="w-10 h-10 flex justify-center items-center bg-white shadow rounded-full p-6 text-2xl">👨🏽‍💻</p>
+        <p class="w-10 h-10 flex justify-center items-center bg-white shadow rounded-full p-6 text-2xl">📱</p>
+        <p class="w-10 h-10 flex justify-center items-center bg-white shadow rounded-full p-6 text-2xl">📈</p>
+        <p class="w-10 h-10 flex justify-center items-center bg-white shadow rounded-full p-6 text-2xl">🚀</p>
+      </div>
+      <p class="hidden xl:flex absolute top-48 left-10 text-8xl">👨🏽‍💻</p>
+      <p class="hidden xl:flex absolute bottom-48 left-32 text-8xl">📱</p>
+      <p class="hidden xl:flex absolute top-48 right-10 text-8xl">📈</p>
+      <p class="hidden xl:flex absolute bottom-48 right-32 text-8xl">🚀</p>
+      <h2 class="text-4xl md:text-6xl lg:text-7xl xl:text-9xl text-center font-poppins font-bold">Soluciones web profesionales para tu negocio</h2>
+      <p class="text-sm xl:text-2xl text-center text-gray-500">Sitios web modernos y rápidos que convierten desde el primer clic.</p>
+      <a href="/#contact" class="xl:text-xl text-white px-4 py-2 lg:px-8 lg:py-4 xl:px-14 xl:py-6 border rounded-full bg-gradient-to-b from-neutral-900 via-gray-800 to-gray-700">Solicita tu cotización gratuita 👇</a>
+    </div>
+  </ContentWidth>
 </section>
