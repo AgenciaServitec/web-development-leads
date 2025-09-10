@@ -1,0 +1,139 @@
+<form
+        id="formContact"
+        method="POST"
+        action="#"
+        class="space-y-6 border-yellow-400/10 relative"
+>
+    <div id="formMessage" class="absolute -top-14 left-0 w-full text-center"></div>
+
+    <div class="flex flex-col text-left">
+        <label for="fullName" class="mb-2 font-medium text-yellow-400">Nombre</label>
+        <input
+                id="fullName"
+                type="text"
+                required
+                placeholder="Ingresa tu nombre"
+                class="w-full rounded-lg bg-neutral-900 border border-neutral-700 px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition"
+        />
+    </div>
+
+    <div class="flex flex-col text-left">
+        <label for="email" class="mb-2 font-medium text-yellow-400">Correo</label>
+        <input
+                id="email"
+                type="email"
+                required
+                placeholder="ejemplo@correo.com"
+                class="w-full rounded-lg bg-neutral-900 border border-neutral-700 px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition"
+        />
+    </div>
+
+    <div class="flex flex-col text-left">
+        <label for="phoneNumber" class="mb-2 font-medium text-yellow-400">Teléfono</label>
+        <input
+                id="phoneNumber"
+                type="tel"
+                placeholder="Telefono"
+                pattern="[0-9+ ]*"
+                class="w-full rounded-lg bg-neutral-900 border border-neutral-700 px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition"
+        />
+    </div>
+
+    <div class="flex flex-col text-left">
+        <label for="message" class="mb-2 font-medium text-yellow-400">Mensaje</label>
+        <textarea
+                id="message"
+                rows="5"
+                required
+                placeholder="Cuéntanos sobre tu idea o proyecto..."
+                class="w-full rounded-lg bg-neutral-900 border border-neutral-700 px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition"
+        ></textarea>
+    </div>
+
+    <div class="text-center justify-items-center">
+        <button
+                type="submit"
+                class="w-full md:w-auto px-8 py-3 rounded-xl bg-yellow-400 text-black font-semibold shadow-lg hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-yellow-400/40 transition flex items-center justify-center gap-2"
+        >
+            <span id="btnText">Enviar mensaje</span>
+            <span id="btnSpinner" class="hidden animate-spin border-2 border-black/30 border-t-black rounded-full w-4 h-4"></span>
+        </button>
+    </div>
+</form>
+
+<script>
+    const form = document.getElementById("formContact");
+    const formMessage = document.getElementById("formMessage");
+    const button = form.querySelector("button");
+    const btnText = document.getElementById("btnText");
+    const btnSpinner = document.getElementById("btnSpinner");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const fullName = document.getElementById("fullName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phoneNumber = document.getElementById("phoneNumber").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!fullName || !email || !message) {
+            showMessage("⚠️ Completa todos los campos obligatorios.", "red");
+            return;
+        }
+
+        const contact = {
+            fullName,
+            email,
+            phone: {
+                countryCode: "+51",
+                number: phoneNumber,
+            },
+            message,
+            hostname: "creacion-pagina-web.site",
+        };
+
+        try {
+            button.disabled = true;
+            btnText.textContent = "Enviando...";
+            btnSpinner.classList.remove("hidden");
+
+            const result = await fetch("https://api-servitecsales.web.app/emails/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({ contact }),
+            });
+
+            if (result.ok) {
+                form.reset();
+                showMessage("✅ ¡Tu mensaje fue enviado con éxito!", "green");
+            } else {
+                showMessage("❌ Hubo un problema al enviar el mensaje. Intenta nuevamente.", "red");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            showMessage("⚠️ Error de conexión. Inténtalo más tarde.", "red");
+        } finally {
+            button.disabled = false;
+            btnText.textContent = "Enviar mensaje";
+            btnSpinner.classList.add("hidden");
+        }
+    });
+
+    function showMessage(text, color) {
+        const colors = {
+            green: "bg-green-600/90",
+            red: "bg-red-600/90",
+        };
+        formMessage.innerHTML = `
+            <p class="${colors[color]} text-white px-4 py-2 rounded-lg shadow-md animate-fade-in">
+                ${text}
+            </p>
+        `;
+        setTimeout(() => {
+            formMessage.innerHTML = "";
+        }, 4000);
+    }
+</script>

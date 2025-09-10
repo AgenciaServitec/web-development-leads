@@ -1,24 +1,59 @@
 ---
 import ContentWidth from "./ContentWidth.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 ---
-<footer>
+
+<footer class="bg-neutral-950 text-neutral-300 relative overflow-hidden">
   <ContentWidth>
-    <div class="flex flex-col gap-6 md:flex-row justify-between md:items-center">
-      <!--<h1>LOGO</h1>-->
-      <!--<div class="flex">-->
-      <!--  <ul class="flex space-x-8">-->
-      <!--    <li><a href="/">Inicio</a></li>-->
-      <!--    <li><a href="/#benefits">Beneficios</a></li>-->
-      <!--    <li><a href="/#jobs">Trabajos</a></li>-->
-      <!--    <li><a href="/#contact">Contacto</a></li>-->
-      <!--  </ul>-->
-      <!--</div>-->
-      <!--<div class="flex space-x-2 min-w-[100px] ">-->
-      <!--  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">&lt;!&ndash;!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.&ndash;&gt;<path fill="#1f5fe1" d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/></svg>-->
-      <!--  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">&lt;!&ndash;!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.&ndash;&gt;<path fill="#1f5fe1" d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>-->
-      <!--  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">&lt;!&ndash;!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.&ndash;&gt;<path fill="#1f5fe1" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>-->
-      <!--</div>-->
+    <div class="grid gap-12 md:grid-cols-3 py-16 items-start">
+
+      <div class="space-y-5">
+        <Image
+            src=/logo.png
+            alt="Logo de Servitec Software"
+            width={48}
+            height={48}
+            class="w-32 md:w-40 h-auto transition-transform duration-300 group-hover:scale-110 drop-shadow-lg invert"
+            loading="eager"
+            fetchpriority="high"
+        />
+        <p class="text-sm leading-relaxed text-neutral-400 max-w-xs">
+          Soluciones digitales modernas para tu negocio. Desarrollo web, branding y experiencias únicas en línea.
+        </p>
+      </div>
+
+      <div class="space-y-5">
+        <h3 class="text-lg font-semibold text-yellow-400">Navegación</h3>
+        <ul class="grid grid-cols-2 gap-3 text-sm">
+          <li><a href="/" class="hover:text-yellow-300 transition">Inicio</a></li>
+          <li><a href="/#benefits" class="hover:text-yellow-300 transition">Beneficios</a></li>
+          <li><a href="/#jobs" class="hover:text-yellow-300 transition">Trabajos</a></li>
+          <li><a href="/#contact" class="hover:text-yellow-300 transition">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-5">
+        <h3 class="text-lg font-semibold text-yellow-400">Contáctanos</h3>
+
+        <div class="flex items-center space-x-3">
+          <Icon name="mdi:whatsapp" class="text-green-500 text-2xl" />
+          <a href="https://wa.me/+51930345270?text=Hola!+Estoy+interesado+en+sus+servicios+de+desarrollo+Web"
+             target="_blank"
+             class="hover:text-yellow-400 transition font-medium">
+            Escríbenos al <span class="font-bold">+51 930 345 270</span>
+          </a>
+        </div>
+      </div>
     </div>
-    <p class="flex justify-center p-6 text-center text-sm text-gray-500">© Copyright 2025 Servitec | Todos los derechos reservados</p>
+
+    <div class="border-t border-neutral-800"></div>
+
+    <p class="text-center text-sm text-neutral-500 py-6">
+      © {new Date().getFullYear()} Servitec | Todos los derechos reservados
+    </p>
   </ContentWidth>
+
+  <div aria-hidden="true" class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-yellow-500/10 blur-3xl"></div>
+  <div aria-hidden="true" class="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-yellow-400/10 blur-3xl"></div>
 </footer>
