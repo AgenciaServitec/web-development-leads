@@ -1,16 +1,43 @@
 ---
-import Title from "./Title.astro";
+import { Icon } from "astro-icon/components"
 import ContentWidth from "./ContentWidth.astro";
+import FormComponent from "./FormComponent.astro";
 ---
 
-<section id="contact" class="py-20">
-    <ContentWidth>
-        <Title text="Contacto" />
-        <form>
-            <input type="text" name="" placeholder="Nombre" />
-            <input type="email" name="" placeholder="Correo" />
-            <input type="number" name="" placeholder="Telefono" />
-            <button>Enviar</button>
-        </form>
+<section id="contact" class="py-24 bg-neutral-900 text-white relative overflow-hidden">
+    <ContentWidth class="px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div class="space-y-10">
+                <div>
+                    <h2 class="text-4xl sm:text-5xl font-extrabold leading-tight mb-4">
+                        <span class="bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                          Contáctanos
+                        </span>
+                    </h2>
+                    <p class="text-neutral-300 max-w-md">
+                        ¿Tienes un proyecto en mente? Escríbenos y te responderemos lo antes posible.
+                        Nuestro canal principal de atención es <span class="text-yellow-400 font-semibold">WhatsApp</span>.
+                    </p>
+                </div>
+
+                <div class="space-y-5">
+                    <div class="flex items-center space-x-3">
+                        <Icon name="mdi:whatsapp" class="text-green-500 text-2xl" />
+                        <a href="https://wa.me/+51930345270?text=Hola!+Estoy+interesado+en+sus+servicios+de+desarrollo+Web"
+                           target="_blank"
+                           class="hover:underline text-yellow-400 font-medium">
+                            Escríbenos al <span class="font-bold">+51 930 345 270</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full mx-auto bg-neutral-800 border border-yellow-500/30 rounded-2xl shadow-xl shadow-yellow-500/10 p-8">
+                <FormComponent />
+            </div>
+        </div>
     </ContentWidth>
+
+    <div aria-hidden="true" class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-yellow-500/10 blur-3xl max-w-full"></div>
+    <div aria-hidden="true" class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-yellow-400/10 blur-3xl max-w-full"></div>
 </section>
