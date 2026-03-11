@@ -2,7 +2,7 @@
 import ContentWidth from "./ContentWidth.astro";
 ---
 <!--bg-gradient-to-b from-yellow-200 via-yellow-100 to-white-->
-<section class="w-full relative">
+<section class="w-full h-svh relative">
   <div class="absolute inset-0 -z-10 bg-gradient-to-b from-yellow-200 via-yellow-100 to-white">
     <div class="relative h-full w-full bg-red [&>div]:absolute [&>div]:h-full [&>div]:w-full [&>div]:bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [&>div]:[background-size:16px_16px] [&>div]:[mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
       <div></div>
@@ -10,7 +10,7 @@ import ContentWidth from "./ContentWidth.astro";
   </div>
 
   <ContentWidth>
-    <div class="relative w-full h-svh flex flex-col gap-8 xl:gap-10 justify-center items-center xl:pt-32">
+    <div class="relative w-full h-svh flex flex-col gap-8 xl:gap-10 justify-center items-center pt xl:pt-32">
       <div class="flex xl:hidden gap-4">
         <p class="w-10 h-10 flex justify-center items-center bg-white shadow rounded-full p-6 text-2xl">👨🏽‍💻</p>
         <p class="w-10 h-10 flex justify-center items-center bg-white shadow rounded-full p-6 text-2xl">📱</p>
